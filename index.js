@@ -6,9 +6,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var Store = function () {
     function Store(reducer, mapStorageToState, mapStateToStorage) {
+        var _Redux;
+
         _classCallCheck(this, Store);
 
-        this._store = Redux.createStore(reducer, this.load(mapStorageToState));
+        for (var _len = arguments.length, middleware = Array(_len > 3 ? _len - 3 : 0), _key = 3; _key < _len; _key++) {
+            middleware[_key - 3] = arguments[_key];
+        }
+
+        this._store = Redux.createStore(reducer, this.load(mapStorageToState), (_Redux = Redux).applyMiddleware.apply(_Redux, middleware));
         this._queue = [];
         this.state = this._store.getState();
 

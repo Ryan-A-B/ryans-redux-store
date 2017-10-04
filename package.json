@@ -1,6 +1,6 @@
 {
     "name": "ryans-redux-store",
-    "version": "0.2.3",
+    "version": "0.3.2",
     "license": "GPL-3.0",
     "entry": "index.js",
     "scripts": {

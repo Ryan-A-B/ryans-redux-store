@@ -1,6 +1,6 @@
 class Store {
-    constructor (reducer, mapStorageToState, mapStateToStorage) {
-        this._store = Redux.createStore(reducer, this.load(mapStorageToState));
+    constructor (reducer, mapStorageToState, mapStateToStorage, ...middleware) {
+        this._store = Redux.createStore(reducer, this.load(mapStorageToState), Redux.applyMiddleware(...middleware));
         this._queue = [];
         this.state = this._store.getState();
 
